@@ -1,0 +1,12 @@
+//sizing carousel and images to work together --
+//it was a bit challenging getting the display to work well and be responsive
+
+img {
+  height: 500px;
+  width: 100%;
+}
+
+ngb-carousel {
+  height: 500px;
+  width: 80% vw;
+}

@@ -1,0 +1,55 @@
+<!--Admin page with accordion style links to statistics listing and create/update/delete-->
+<div class="container my-5">
+  <h1 class="m-3">Kent Real Estate -- Admin</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perspiciatis laudantium sint sequi ratione ipsa
+    harum nam beatae natus quas, molestias tempore ut exercitationem, dolore ipsam id! Quos, magnam quo.
+  </p>
+  <h4 class="my-3">Admin Tools:</h4>
+  <div>
+    <ngb-accordion [closeOthers]="true" activeIds="">
+      <ngb-panel id="static-1">
+        <ng-template ngbPanelTitle>
+          <button type="button" class="btn btn-primary">Property Statistics</button>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div>
+            <h3>Based On Current Listings:</h3>
+            <ul>
+              <li>
+                Number of Properties Listed: {{propCount}}
+              </li>
+              <li>
+                Highest Listed Price: {{maxPrice | currency: "USD" : "symbol" : "1.0"}}
+              </li>
+              <li>
+                Lowest Listed Price: {{minPrice | currency: "USD" : "symbol" : "1.0"}}
+              </li>
+              <li>
+                Average Listing Price (appx.): {{averagePrice | currency: "USD" : "symbol" : "1.0"}}
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="static-2">
+        <ng-template ngbPanelTitle>
+          <button type="button" class="btn btn-primary">Links</button>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <ul>
+            <li>
+              <a href="/properties">View Properties</a>
+            </li>
+            <li>
+              <a href="/form">Add Property</a>
+            </li>
+          </ul>
+        </ng-template>
+      </ngb-panel>
+      <!--This isn't necessary but left it to take a little more space up-->
+      <ngb-panel id="static-3" title="Future Enhancement" [disabled]="true"></ngb-panel>
+    </ngb-accordion>
+  </div>
+</div>
+

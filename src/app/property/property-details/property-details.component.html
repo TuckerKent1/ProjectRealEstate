@@ -1,0 +1,44 @@
+<!--Detail listing page-->
+<div class="container">
+  <h2 class="text-center">Property Overview</h2>
+  <ul class="mr-3">
+    <li>
+      <h6>Property Type: {{property.type}}</h6>
+    </li>
+    <li>
+      <h6>Address: {{property.address}}</h6>
+    </li>
+    <li>
+      <h6>Description: <p>{{property.description}}</p></h6>
+    </li>
+    <li>
+      <h6>Listed Price: {{property.listPrice | currency: "USD": "symbol" : "1.0"}}</h6>
+    </li>
+    <li>
+      <h6>Date Listed: {{property.listDate | date}}</h6>
+    </li>
+  </ul>
+  <!--Carousel for pleasing display and user engagement -- works with mouse and keyboard arrows-->
+  <div class="col-sm mb-5">
+    <ngb-carousel>
+      <ng-template ngbSlide>
+        <div>
+          <img src="{{property.images[0]}}" alt="First Property Picture">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div>
+          <img src="{{property.images[1]}}" alt="Second Property Picture">
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div>
+          <img src="{{property.images[2]}}" alt="Third Property Picture">
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="text-center align-center mb-5">
+    <a routerLink="/form/{{property.id}}"><h3>Modify This Listing</h3></a>
+  </div>
+</div>

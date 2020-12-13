@@ -1,0 +1,25 @@
+<!--Property Listing with table and link to every property -- pagination based on property numbers-->
+<div class="container">
+  <h2 class="text-center my-3">Current Properties on the Market:</h2>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Address</th>
+      <th scope="col">Property Type</th>
+      <th scope="col">Listing Price</th>
+      <th scope="col">Date Listed</th>
+      <th scope="col">Link</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let property of properties | slice: (page-1) * pageSize : page * pageSize">
+      <th scope="row">{{property.address}}</th>
+      <td>{{property.type}}</td>
+      <td>{{property.listPrice | currency: "USD" : "symbol" : "1.0"}}</td>
+      <td>{{property.listDate | date}}</td>
+      <td><a routerLink="/properties/{{property.id}}">View Property</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+</div>
